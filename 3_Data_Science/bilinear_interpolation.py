@@ -40,12 +40,12 @@ def compute_bilinear_interpolation(pt_c_array, f_array, x_int):
 
 
 if __name__ == '__main__':
-    pt_cd_array = np.array([[8, 9],
-                            [9, 9],
-                            [9, 10],
-                            [8, 10]])
-    f_array = np.array([0, 77, 0, 75])
-    x_int = np.array([8.5, 9.3])
+    pt_cd_array = np.array([[6, 6],
+                            [7, 6],
+                            [7, 7],
+                            [6, 7]])
+    f_array = np.array([58, 28, 35, 79])
+    x_int = np.array([6.2, 6.8])
 
     f_int = compute_bilinear_interpolation(pt_cd_array, f_array, x_int)
     print('Bilienar interpolated value is {:.3f}'.format(f_int))

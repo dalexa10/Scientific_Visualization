@@ -17,5 +17,5 @@ def compute_matrix_A(*args):
 
 
 if __name__ == '__main__':
-    A = compute_matrix_A(0.3, 0.8, 0.4)
+    A = compute_matrix_A(0.5, 0.7, 0.7)
     print(A)
