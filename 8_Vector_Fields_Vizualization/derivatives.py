@@ -13,7 +13,7 @@ def compute_numerical_derivative_FD(f, x, dx=1e-6):
     df = (f(x + dx) - f(x - dx)) / (2 * dx)
     return df
 
-def comppute_numerical_derivative_CS(f, x, h=1e-6):
+def compute_numerical_derivative_CS(f, x, h=1e-6):
     """
     Computes the numerical derivative of a function f at a point x with complex step method
     :param f: function, f(x) NOTE: f should work with complex numbers, check cmath library
@@ -64,7 +64,7 @@ if __name__ == '__main__':
     x = 2
     f1_ex = f_parabola(a, b, c)
     df1_dx_FD = compute_numerical_derivative_FD(f1_ex, x)
-    df1_dx_CS = comppute_numerical_derivative_CS(f1_ex, x)
+    df1_dx_CS = compute_numerical_derivative_CS(f1_ex, x)
 
     print('Derivative at x = {:.3f} is {:.3f} '.format(x, df1_dx_FD))
     print('Derivative at x = {:.3f} is {:.3f} '.format(x, df1_dx_CS))
@@ -72,7 +72,7 @@ if __name__ == '__main__':
     # Another example
     f2 = lambda x: np.sin(x) * np.log(x**2)
     df2_dx_FD = compute_numerical_derivative_FD(f2, x)
-    df2_dx_CS = comppute_numerical_derivative_CS(f2, x)
+    df2_dx_CS = compute_numerical_derivative_CS(f2, x)
 
     print('Derivative at x = {:.3f} is {:.3f} '.format(x, df2_dx_FD))
     print('Derivative at x = {:.3f} is {:.3f} '.format(x, df2_dx_CS))
