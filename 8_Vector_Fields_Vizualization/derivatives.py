@@ -54,6 +54,20 @@ def compute_symbolic_curl(vector_field):
     return curl
 
 
+def compute_symbolic_hessian(scalar_function):
+    """
+    Computes the symbolic hessian of a scalar function
+    :param scalar_function: function, f(x, y, z)
+    :return: hessian
+    """
+    x, y, z = symbols('x y z')
+    f = scalar_function
+    hessian = [[diff(f, x, x), diff(f, x, y), diff(f, x, z)],
+               [diff(f, y, x), diff(f, y, y), diff(f, y, z)],
+               [diff(f, z, x), diff(f, z, y), diff(f, z, z)]]
+    return hessian
+
+
 if __name__ == '__main__':
 
     # Parabola example
@@ -99,3 +113,15 @@ if __name__ == '__main__':
     X_eval_2 = [5, 3, 7]
     curl_num = [i.subs(x, X_eval_2[0]).subs(y, X_eval_2[1]).subs(z, X_eval_2[2]) for i in curl]
     print('Numerical curl at X= {}  is {}'.format(X_eval, curl_num))
+
+
+    # Hessian example
+    x, y, z = symbols('x y z')
+    f = (y**2 * x**2 * z) + (2 * x * y) + z
+    hessian = compute_symbolic_hessian(f)
+    print('Symbolic hessian is: \n', hessian)
+
+    # If you were to get the numerical value, just do this
+    X_eval_3 = [3, 2, 2]
+    hessian_num = [[i.subs(x, X_eval_3[0]).subs(y, X_eval_3[1]).subs(z, X_eval_3[2]) for i in j] for j in hessian]
+    print('Numerical hessian at X= {}  is \n{}'.format(X_eval_3, np.matrix(hessian_num)))
