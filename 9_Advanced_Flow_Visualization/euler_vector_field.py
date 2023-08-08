@@ -14,13 +14,14 @@ def compute_streamline(x0, vec_field, steps, h):
     for i in range(steps):
         x_list.append(x)
         x = x + h * vec_field(x)
+        print(x)
     return np.array(x_list)
 
 if __name__ == '__main__':
 
     vec_field = lambda x: np.array([2 * x[0] * x[1], (x[0] * x[1])**2])
-    x0 = np.array([3, 3])
-    h = 0.5
+    x0 = np.array([2, 1])
+    h = 0.25
     steps = 3
     x_list = compute_streamline(x0, vec_field, steps, h)
     print('Streamline points are: \n')

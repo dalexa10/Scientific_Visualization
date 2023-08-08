@@ -110,9 +110,9 @@ if __name__ == '__main__':
     print('Symbolic curl is: ', curl)
 
     # If you were to get the numerical value, just do this
-    X_eval_2 = [5, 3, 7]
+    X_eval_2 = [2, 3, 6]
     curl_num = [i.subs(x, X_eval_2[0]).subs(y, X_eval_2[1]).subs(z, X_eval_2[2]) for i in curl]
-    print('Numerical curl at X= {}  is {}'.format(X_eval, curl_num))
+    print('Numerical curl at X= {}  is {}'.format(X_eval_2, curl_num))
 
 
     # Hessian example
